@@ -16,9 +16,9 @@ export class Account {
         
     ) {}
 
-    static create(name:string, email:string, password:string, username:string) {
+     static create(name:string, email:string, password:string, username:string) {
         const accountId = crypto.randomUUID();
-        console.log(name, email, password, username)
+        
         return new Account(accountId, new Name(name), new Email(email), new Password(password), new Username(username))
     }
 

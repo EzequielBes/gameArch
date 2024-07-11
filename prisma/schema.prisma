@@ -15,27 +15,27 @@ datasource db {
 
 
 model User {
-  accountId String  @unique @default(uuid())
+  account_id String  @unique @default(uuid())
   name String
   email String
   password String
   username String
   friends    Friend[] @relation("FriendUserOne")
-  toFriends Friend[] @relation("FriendUserTwo")
-  createdAT DateTime @default(now())
-  updatedAt DateTime @default(now())
+  to_friends Friend[] @relation("FriendUserTwo")
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
   @@map("user")
 }
 
 model Friend {
-  listFriendId String @unique @default(uuid())
-  userOne User @relation("FriendUserOne", fields: [userOneId], references: [accountId])
-  userOneId String @default(uuid())
-  userTwo User @relation("FriendUserTwo", fields: [userTwoId], references: [accountId])
-  userTwoId String  @default(uuid())
+  list_friend_id String @unique @default(uuid())
+  user_one User @relation("FriendUserOne", fields: [user_one_id], references: [account_id])
+  user_one_id String @default(uuid())
+  user_two User @relation("FriendUserTwo", fields: [user_two_id], references: [account_id])
+  user_two_id String  @default(uuid())
   statement String @default("pendente")
-  createdAT DateTime @default(now())
-  updatedAT DateTime @default(now())
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
 
-  @@unique([userOneId, userTwoId])
+  @@unique([user_one_id, user_two_id])
 }

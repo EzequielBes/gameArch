@@ -8,7 +8,8 @@ export class SignupUser {
     async execute(input:any) {
         const exitsAccount = await this.database.getAccountByEmail(input.email)
         if(exitsAccount) throw new Error("Account already exists")
-        const account = Account.create(input.name, input.email,  input.password, input.username)
+        const account =  Account.create(input.name, input.email,  input.password, input.username)
+        console.log('this', account)
         await this.database.saveAccount(account)
         return "User created"
     }
