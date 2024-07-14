@@ -17,25 +17,22 @@ datasource db {
 model User {
   account_id String  @unique @default(uuid())
   name String
-  email String
+  email String @unique
   password String
-  username String
-  friends    Friend[] @relation("FriendUserOne")
-  to_friends Friend[] @relation("FriendUserTwo")
+  username String @unique
+
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
   @@map("user")
 }
 
-model Friend {
-  list_friend_id String @unique @default(uuid())
-  user_one User @relation("FriendUserOne", fields: [user_one_id], references: [account_id])
-  user_one_id String @default(uuid())
-  user_two User @relation("FriendUserTwo", fields: [user_two_id], references: [account_id])
-  user_two_id String  @default(uuid())
-  statement String @default("pendente")
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now())
+model Friendship {
+  friend_id String @unique
+  who_request_id String
+  to_request_id String
+  status String
+  created_at DateTime
+  updated_at DateTime
 
-  @@unique([user_one_id, user_two_id])
+  @@map("friends")
 }

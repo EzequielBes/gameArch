@@ -35,8 +35,8 @@ test("Deve Tentar criar usuario e retornar usuario ja existe",  async function (
     
     
     const input = {
-        name: "terrrte",
-        email: "rerer@gmail.com",
+        name: "comes",
+        email: "besbes@gmail.com",
         password: "ZeroQuatro@4",
         username: "ocolouco"
     }

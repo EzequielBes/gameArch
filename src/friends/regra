@@ -1,0 +1,8 @@
+
+
+- O usuario deve existir
+- O usuario não pode enviar pedido de amigo para quem ja é amigo
+- O usuario deve receber uma lista de quem adicionou ele 
+- O usuario deve poder Recusar o pedido de amizade
+- O usuario deve poder aceitar
+- Só deve ser amigo se pedir em amizade e o outro aceitar
